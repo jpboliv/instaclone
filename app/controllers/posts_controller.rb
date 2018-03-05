@@ -14,7 +14,7 @@ class PostsController < ApplicationController
             flash[:success] = "Your post has been created!"
             redirect_to posts_path
         else
-            flash[:alert] = "Your new post couldn't be created!"
+            flash[:danger] = "Your new post couldn't be created!"
             render :new
         end
     end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
             flash[:success] = "Your post has been updated!"
             redirect_to(post_path(@post))
         else
-            flash[:alert] = "Your post couldn't be updated!"
+            flash[:danger] = "Your post couldn't be updated!"
             render :edit
         end
     end
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
             flash[:success] = "The post was successfully deleted!"
             redirect_to posts_path
         else
-            flash[:alert] = "Your post couldn't be deleted!"
+            flash[:danger] = "Your post couldn't be deleted!"
             render :edit
         end
     end
