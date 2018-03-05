@@ -15,8 +15,9 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+#gems I added for the project
 gem "paperclip", "~> 5.2.1"
-
+gem 'simple_form'
 
 group :development, :test do  
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
