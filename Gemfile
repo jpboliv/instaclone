@@ -18,6 +18,8 @@ gem 'jbuilder', '~> 2.5'
 #gems I added for the project
 gem "paperclip", "~> 5.2.1"
 gem 'simple_form'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'jquery-rails'
 
 group :development, :test do  
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
