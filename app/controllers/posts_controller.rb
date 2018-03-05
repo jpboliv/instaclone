@@ -1,16 +1,19 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!
+    before_action :check_ownership, only: [:edit, :update, :destroy]
+
     def index
         @posts = Post.all
     end
 
     def new
-        @post = Post.new
+        @post = current_user.posts.build
     end
 
     def create
-        @post = Post.create(post_params)
-        if(@post.valid?)
+        @post = current_user.posts.build(post_params)
+        if @post.save
             flash[:success] = "Your post has been created!"
             redirect_to posts_path
         else
@@ -52,5 +55,12 @@ class PostsController < ApplicationController
 
     def set_post
         @post = Post.find(params[:id])
+    end
+
+    def check_ownership
+        unless current_user == @post.user
+            flash[:danger] = "YOU SHOULDN'T BE HERE BOY!"
+            redirect_to root_path
+        end
     end
 end
