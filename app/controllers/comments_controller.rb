@@ -4,10 +4,12 @@ class CommentsController < ApplicationController
         @comment = @post.comments.build(comment_params)
         @comment.user_id = current_user.id
         if @comment.save
-            flash[:success] = "Your comment has been created!"
-            redirect_to posts_path
+            respond_to do |format|
+                format.html { redirect_to root_path }
+                format.js
+            end
         else
-            flash[:danger] = "Your new comment couldn't be created!"
+            flash[:danger] = "Your comment couldn't be created!"
             redirect_to root_path
         end
     end
