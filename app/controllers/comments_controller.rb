@@ -16,9 +16,12 @@ class CommentsController < ApplicationController
 
     def destroy
         @comment = @post.comments.find(params[:id])
-        if(@comment.destroy)
-            flash[:success] = "The comment was successfully deleted!"
-            redirect_to root_path
+        if(@comment.user_id = current_user.id)
+            @comment.delete
+            respond_to do |format|
+                format.html { redirect_to root_path }
+                format.js
+            end
         else
             flash[:danger] = "Your comment couldn't be deleted!"
         end
