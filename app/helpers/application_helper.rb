@@ -3,7 +3,7 @@ module ApplicationHelper
         case level
             when 'notice' then "alert alert-info"
             when 'success' then "alert alert-success"
-            when 'danger' then "alert alert-danger"
+            when 'error' then "alert alert-warning"
             when 'danger' then "alert alert-danger"
         end
     end
