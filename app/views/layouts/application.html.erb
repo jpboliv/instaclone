@@ -7,11 +7,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <%= render "layouts/navbar"%>
-  <% flash.each do |name, msg| %>
-    <div class="<%= flash_class(name) %>">
-      <%= msg %>
-    </div>
+    <%= render "layouts/navbar"%>
+    <% flash.each do |name, msg| %>
+      <div class="<%= flash_class(name) %>">
+        <%= msg %>
+      </div>
     <% end %>
     <%= yield %>
   </body>

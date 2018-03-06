@@ -1,7 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 body {
   background-color: #fafafa;
+  height: 100%;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
@@ -138,4 +140,52 @@ body {
 .edit-links {
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+/* login screen css*/
+html {
+  height: 100%;
+}
+
+.registration-bg {
+  padding-top: 4em;
+  height: 100%;
+  background-image: image-url('bgimage.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.log-in{
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  border: none;
+}
+
+.panel {
+  border-radius: 8px;
+  .panel-body {
+    .input {
+      input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.panel-heading{
+  h1 {
+    text-align: center;
+  }
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.alert {
+  margin-bottom: 0px;
 }
