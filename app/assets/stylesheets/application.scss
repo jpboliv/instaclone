@@ -188,3 +188,26 @@ html {
 .alert {
   margin-bottom: 0px;
 }
+
+/*images placeholder/new post*/
+#image-preview {
+  margin: 0px auto;
+}
+
+#post_image {
+  padding: 1em;
+  margin: 0px auto;
+}
+/*fixing new posts layout */
+input, select {
+  width: 100%;
+  border-radius: 3px; 
+}
+
+input[type=file]{
+  width: auto;
+}
+
+
+
+

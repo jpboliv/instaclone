@@ -7,4 +7,15 @@ module ApplicationHelper
             when 'danger' then "alert alert-danger"
         end
     end
+
+    def has_image(post)
+        if(post.image.exists?)
+            #display current post image
+            return image_tag @post.image.url(:medium), id: 'image-preview', class: 'img-responsive'
+        else
+            #display placeholder
+            return image_tag 'placeholder.jpg', id: 'image-preview', class: 'img-responsive'
+        end
+    end
+
 end
