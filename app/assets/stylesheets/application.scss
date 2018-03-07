@@ -12,7 +12,7 @@ body {
   a {
     color: #125688;
   }
-}
+} 
 
 .navbar-default {
   background-color: #fff;
@@ -210,7 +210,7 @@ input[type=file]{
 
 /* load more button and paginator */
 
-.paginator {
+.paginator-button {
   color: #4090DB;
   height: 120px;
   width: 120px;
@@ -236,3 +236,11 @@ input[type=file]{
   }
 }
 
+.comments {
+  .paginator{
+    margin: 0.5em;
+    .more-comments{
+      color: #A5A7AA;
+    }
+  }
+}
