@@ -1,4 +1,3 @@
-
 $( document ).ready(function() {
     console.log("Yo");
     $('.more-comments').click( function() {
