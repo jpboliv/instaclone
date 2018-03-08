@@ -19,6 +19,7 @@
         </div>
         <%= post.caption %>
       </div>
+      <%= render "votes", post: post%>
       <%= render "comments/comments", post: post %>
     </div>
     <div class="comment-like-form row">
