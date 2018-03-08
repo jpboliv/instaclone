@@ -11,16 +11,22 @@ class PostsController < ApplicationController
         end
     end
     
-    def upvote
+    def like
         @post = Post.find(params[:id])
         @post.upvote_by current_user
-        redirect_to root_path
+        respond_to do |format|
+            format.html {redirect_to request.referrer}
+            format.js
+        end
     end
     
-    def downvote
+    def unlike
         @post = Post.find(params[:id])
         @post.downvote_by current_user
-        redirect_to root_path
+        respond_to do |format|
+            format.html {redirect_to request.referrer}
+            format.js
+        end
     end
 
     def new
