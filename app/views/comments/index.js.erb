@@ -1,0 +1,5 @@
+console.log("entrei")
+$('#comments_<%= @post.id %>.comments').html('<%= escape_javascript render(@comments, post: @post, comment: @comment)%>');
+$('#more-comments').remove();
+console.log("sai");
+
