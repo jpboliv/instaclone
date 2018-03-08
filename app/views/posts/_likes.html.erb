@@ -1,0 +1,6 @@
+<div id="likes_<%= post.id %>">
+    <%= link_to like_post_path(post), class:"like-btn", method: :put, remote: :true, data: {post_id: "#{post.id}"} do %>
+        <span><i class="glyphicon glyphicon-heart"></i></span>          
+        <%end%>
+    <div class="likes-count" id ="likes-count-<%= post.id %>"><%= post.get_upvotes.size %></div>
+</div>

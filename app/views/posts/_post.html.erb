@@ -15,11 +15,7 @@
     <div class="post-bottom">
       <div class="caption">
         <div class="user-name">
-          <%= link_to like_post_path(post), class:"like-btn", method: :put, data: { post_id: "#{post.id}" }, remote: :true do %>
-            <span><i class="glyphicon glyphicon-heart"></i></span>          
-          <%end%>
-          <span class="likes-count"><%= post.get_upvotes.size %></span>
-          <%#= render "votes", post: post%>
+          <%= render "likes", post: post %>
           <br>
           <%= post.user.user_name %>
         </div>

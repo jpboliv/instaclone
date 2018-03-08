@@ -1,8 +1,6 @@
 <% if current_user.liked? @post %>
-    $('.like-btn').addClass('liked');
-    console.log("entrei no jquery (no if)");
+    $('#likes_<%= @post.id %>').addClass('liked');
 <% else %>
-    $('.like-btn').removeClass('liked');
-    console.log("ENTREI ELSE");
+    $('#likes_<%= @post.id %>').removeClass('liked');   
 <%end%>
-$('.likes-count').html("<%= @post.get_upvotes.size %>");
+$('#likes-count-<%= @post.id %>').html("<%= @post.get_upvotes.size %>");
