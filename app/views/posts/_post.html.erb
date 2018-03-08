@@ -15,6 +15,12 @@
     <div class="post-bottom">
       <div class="caption">
         <div class="user-name">
+          <%= link_to like_post_path(post), class:"like-btn", method: :put, data: { post_id: "#{post.id}" }, remote: :true do %>
+            <span><i class="glyphicon glyphicon-heart"></i></span>          
+          <%end%>
+          <span class="likes-count"><%= post.get_upvotes.size %></span>
+          <%#= render "votes", post: post%>
+          <br>
           <%= post.user.user_name %>
         </div>
         <%= post.caption %>
@@ -23,7 +29,7 @@
     </div>
     <div class="comment-like-form row">
       <div class="like-button col-sm-1">
-        <span class="glyphicon glyphicon-heart-empty"</span>
+        <%# <span class="glyphicon glyphicon-heart-empty"</span> %>
       </div>
       <div class="comment-form col-sm-11">
         <%= form_for([post, post.comments.build], remote: true) do |f| %>

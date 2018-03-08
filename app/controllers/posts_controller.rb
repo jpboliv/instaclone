@@ -1,14 +1,27 @@
 class PostsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_post, only: [:show, :edit, :update, :destroy]
+    before_action :set_post, only: [:show, :edit, :update, :destroy, :vote]
     before_action :check_ownership, only: [:edit, :update, :destroy]
-
+ 
     def index
         @posts = Post.all.order('created_at DESC').page params[:page]
         respond_to do |format|
             format.html
             format.js
         end
+    end
+    
+    def vote
+        if current_user.liked? @post
+            @post.unliked_by current_user
+        else
+            @post.liked_by current_user
+        end   
+        respond_to do |format|
+            #format.html { render layout: !request.xhr? }
+            format.html { redirect_to request.referrer }
+            format.js
+        end     
     end
 
     def new
