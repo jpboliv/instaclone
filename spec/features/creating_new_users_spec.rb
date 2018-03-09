@@ -30,4 +30,22 @@ feature 'Creating a new user' do
         click_button "Sign up"
         expect(page).to have_content("can't be blank")
     end
+
+    scenario 'requires a user name to be more than 4 characters' do
+        fill_in 'Email', with: "sexyrailsdev@myspace.com" 
+        fill_in 'Username', with: "h"
+        fill_in 'Password', with: "supersecret", match: :first
+        fill_in 'Confirm Password', with: "supersecret"
+        click_button "Sign up"
+        expect(page).to have_content("is too short (minimum is 4 characters)")
+    end
+
+    scenario 'requires a user naem to be less than 12 characters' do 
+        fill_in 'Email', with: "sexyrailsdev@myspace.com" 
+        fill_in 'Username', with: "h1234567991012345"
+        fill_in 'Password', with: "supersecret", match: :first
+        fill_in 'Confirm Password', with: "supersecret"
+        click_button "Sign up"
+        expect(page).to have_content("is too long (maximum is 16 characters)")
+    end
 end
