@@ -19,4 +19,15 @@ feature 'Creating a new user' do
         #expect the welcome message
         expect(page).to have_content('Welcome! You have signed up successfully.')
     end
+
+    scenario 'requires a user name to successfully create an account' do
+        #fill in the email field, password password confirmation 
+        #click the sign up button
+        #expect the page to have the message "you need a user name to create an account" 
+        fill_in 'Email', with: "sexyrailsdev@myspace.com" 
+        fill_in 'Password', with: "supersecret", match: :first
+        fill_in 'Confirm Password', with: "supersecret"
+        click_button "Sign up"
+        expect(page).to have_content("can't be blank")
+    end
 end
