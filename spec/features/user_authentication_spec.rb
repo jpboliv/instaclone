@@ -4,12 +4,13 @@ feature 'User authentication' do
     background do
         #create our user factory
         user = create(:user)
+        #sign_in_with(user)
     end
 
     scenario 'can log in from the index via dynamic navbar' do
         #visit the index
         visit '/'
-        #expect the page to not have the 'new post' link yet
+        # #expect the page to not have the 'new post' link yet
         expect(page).to_not have_content('New Post')
         click_link 'Login'
         fill_in 'username', with: 'Arnie'
