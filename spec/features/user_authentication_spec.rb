@@ -2,7 +2,6 @@ require 'rails_helper.rb'
 
 feature 'User authentication' do
     background do
-        #create our user factory
         user = create(:user)
         #sign_in_with(user)
     end
@@ -20,7 +19,6 @@ feature 'User authentication' do
         expect(page).to have_content("New Post")
         expect(page).to have_content("Logout")
         expect(page).to_not have_content('Register')
-
     end
 
     scenario 'can log out once logged in' do

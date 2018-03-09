@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'Creating posts' do
-
     background do
         user = create(:user)
         post = create(:post, user: user)
