@@ -1,6 +1,6 @@
 require 'rails_helper.rb'
 
-feature do
+feature 'Editing posts' do
     background do
         user = create(:user)
         post = create(:post, user: user)
