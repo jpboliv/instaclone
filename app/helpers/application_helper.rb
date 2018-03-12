@@ -18,4 +18,12 @@ module ApplicationHelper
         end
     end
 
+    def profile_avatar_select(user)
+        if(user.avatar.exists?)
+            return image_tag @user.avatar.url(:medium), id: 'image-preview', class: "img-responsive img-circle profile-image"
+        else
+            return image_tag 'default-avatar.jpg', id: 'image-preview', class: 'img-responsive img-circle profileimage'
+        end
+    end
+
 end
