@@ -245,6 +245,11 @@ input[type=file]{
   }
 }
 
+.comment-submit-button {
+  position: absolute;
+  left: -9999px;
+}
+
 /*styling like buttons */
 .likes {
   margin-top: 20px;

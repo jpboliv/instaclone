@@ -6,9 +6,8 @@ feature 'Creating comments' do
         post = create(:post, user: user)
         sign_in_with(user)
         visit '/' 
-        fill_in "comment_content_#{post.id}", with: ";P\n"
-        #fill_in "", with: ";P"
-        #detects keyboard return click
+        fill_in "comment_content_#{post.id}", with: ";P"
+        click_button 'New Comment'
         expect(page).to have_content(";P")
     end
 end
