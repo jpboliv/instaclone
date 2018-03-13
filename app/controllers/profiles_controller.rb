@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
     before_action :set_user
     before_action :authenticate_user!
     before_action :can_edit_profile, only: [:edit, :update]
+
     def show
         #getting user_name from url
         @posts = User.find_by(user_name: params[:user_name]).posts.order('created_at DESC')
@@ -32,7 +33,7 @@ class ProfilesController < ApplicationController
     #only the user can edit his profile
     def can_edit_profile
         unless current_user == @user
-            flash[:danger] = "YOU SHOULDN'T BE HERE BOY!"
+            flash[:danger] = "You can't edit other people profiles!"
             redirect_to root_path
         end
     end
