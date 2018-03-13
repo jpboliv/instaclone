@@ -11,6 +11,8 @@ class User < ApplicationRecord
     
     acts_as_voter
 
+    has_many :notifications, dependent: :destroy
+
     def current_avatar()
         return avatar.url(:medium) if avatar.exists?
 
