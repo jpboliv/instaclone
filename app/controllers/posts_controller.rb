@@ -16,6 +16,7 @@ class PostsController < ApplicationController
             @post.unliked_by current_user
         else
             @post.liked_by current_user
+            create_notification(@post)
         end   
         respond_to do |format|
             #format.html { render layout: !request.xhr? }
@@ -66,6 +67,7 @@ class PostsController < ApplicationController
     end
 
     private
+
     def post_params
         params.require(:post).permit(:image, :caption)
     end
@@ -76,8 +78,15 @@ class PostsController < ApplicationController
 
     def check_ownership
         unless current_user == @post.user
-            flash[:danger] = "YOU SHOULDN'T BE HERE BOY!"
+            flash[:danger] = "You shoulnd't be editing what isn't yours!"
             redirect_to root_path
         end
     end
+
+    def create_notification(post)
+        return if post.user.id == current_user.id 
+        
+        Notification.create(user_id: post.user.id, notified_by_id: current_user.id, post_id: post.id, notice_type: 'like')
+    end
+
 end
