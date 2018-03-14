@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     get 'profiles/show'
     devise_for :users
 
+    get 'posts', to: 'posts#index'
+    get 'show', to: 'posts#index'
+    
     root "posts#index"
 
     get ':user_name', to: 'profiles#show', as: :profile

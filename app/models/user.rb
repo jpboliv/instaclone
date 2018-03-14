@@ -2,6 +2,7 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
             :recoverable, :rememberable, :trackable, :validatable
 
+    validate :validate_username
     validates :user_name, presence: true, length: {minimum: 4, maximum: 16}
     
     has_many :posts, dependent: :destroy
@@ -13,10 +14,18 @@ class User < ApplicationRecord
 
     has_many :notifications, dependent: :destroy
 
-    def current_avatar()
+    def current_avatar
         return avatar.url(:medium) if avatar.exists?
 
         'default-avatar.jpg'
+    end
+
+    def validate_username
+        if user_name.match(/\s+/)
+            errors.add(:user_name, "No spaces on the username!") 
+        elsif user_name == "post" || user_name == "posts" || user_name == "new" || user_name == "edit" || user_name == "show"
+            errors.add(:user_name, "That username is invalid!")
+        end  
     end
 
 end
