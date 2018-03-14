@@ -17,5 +17,5 @@ module ApplicationHelper
             return image_tag 'placeholder.jpg', id: 'image-preview', class: 'img-responsive'
         end
     end
-
+    
 end

@@ -209,7 +209,6 @@ input[type=file]{
 }
 
 /* load more button and paginator */
-
 .paginator-button {
   color: #4090DB;
   height: 120px;
@@ -256,19 +255,35 @@ input[type=file]{
   margin-bottom: 7px;
   color: #4b4f54;
 }
-/*
-.like {
-  text-decoration: none;
-  color: red;
+
+#user_avatar {
+  margin: 20px auto;
 }
 
-.like-button a:hover, a:focus {
-  text-decoration: none;
-  color: red;
+.profile-header {
+  padding: 20px 0;
 }
 
-.like-button {
-  color: #4090DB;
-  border: none;
+.profile-image {
+  margin: 20px auto;
+  height: 152px;
+  width: 152px;
 }
-*/
+
+.user-name-and-follow {
+  display: inline;
+}
+
+.profile-user-name {
+  display: inline;
+}
+
+.edit-button {
+  border-color: #818488;
+  color: #818488;
+  margin-left: 20px;
+}
+
+.profile-bio {
+  margin-top: 20px;
+}
