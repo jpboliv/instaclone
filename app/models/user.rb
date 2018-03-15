@@ -23,7 +23,7 @@ class User < ApplicationRecord
     def validate_username
         if user_name.match(/\s+/)
             errors.add(:user_name, "No spaces on the username!") 
-        elsif user_name == "post" || user_name == "posts" || user_name == "new" || user_name == "edit" || user_name == "show"
+        elsif user_name.in? ['post', 'posts', 'new', 'edit', 'show']
             errors.add(:user_name, "That username is invalid!")
         end  
     end
