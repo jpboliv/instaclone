@@ -6,6 +6,8 @@ class ProfilesController < ApplicationController
     def show
         #getting user_name from url
         @posts = User.find_by(user_name: params[:user_name]).posts.order('created_at DESC')
+        #top 10 most liked posts from user
+        @most_liked_posts = User.find_by(user_name: params[:user_name]).posts.order('cached_votes_up DESC').first(10)
     end
 
     def edit

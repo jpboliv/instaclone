@@ -23,6 +23,21 @@
         </div>
     </div>
 </div>
-<% @posts.each do |post| %>
-    <%= render "posts/post", post: post %>
-<%end%>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li id "my-pics" class="active"><a href="#" data-toggle="tab"> My Pictures </a></li>
+    <li id "most-liked"><a href="#" data-toggle="tab"> Most Liked </a></li>
+  </ul>
+  <div class="tab-pane" id="my-pictures">
+    <%= render "all_posts", post: @posts %>
+  </div>
+  <div class="tab-pane" id="most-liked">
+    <%= render "most_liked", post: @most_liked_posts %>
+  </div>
+</div>
+
+
+
+
+
+
