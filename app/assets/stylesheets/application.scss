@@ -304,3 +304,12 @@ input[type=file]{
       padding: 1em;
     }
 }
+
+.nav-tabs > li {
+  float:none;
+  display:inline-block;
+}
+
+.nav-tabs{
+  text-align:center;
+}
