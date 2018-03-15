@@ -1,0 +1,7 @@
+<% unless posts.last_page? %>
+    <div id ="paginator-button">
+        <div class="paginator-button text-center">
+          <%= link_to_next_page posts, 'LOAD MORE', remote: true, class: 'load_more' %>
+        </div>
+    </div>
+<% end %>
