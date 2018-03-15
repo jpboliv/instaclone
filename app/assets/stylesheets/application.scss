@@ -287,3 +287,20 @@ input[type=file]{
 .profile-bio {
   margin-top: 20px;
 }
+
+.notification-dropdown{
+    margin-top: 10px;
+    button{
+        border: none;
+    }
+}
+
+.notification-index-list {
+    margin-top: 5em;
+    list-style: none;
+    li {
+      margin-top: 1em;
+      background-color: white;
+      padding: 1em;
+    }
+}

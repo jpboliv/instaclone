@@ -23,9 +23,6 @@ feature "Deleting Comments" do
         visit '/'
         expect(page).to have_content('Nice post')
         expect(page).to have_content('Sup dude')
-        # puts "********************"
-        # puts comment_two.id
-        # puts "********************"
         expect(page).to_not have_css('#delete-1')
     end
 end

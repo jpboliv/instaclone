@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     before_action :check_ownership, only: [:edit, :update, :destroy]
  
     def index
-        @posts = Post.all.order('created_at DESC').page params[:page]
+        @posts = Post.all.order('created_at DESC').page(params[:page])
         respond_to do |format|
             format.html
             format.js
@@ -16,6 +16,7 @@ class PostsController < ApplicationController
             @post.unliked_by current_user
         else
             @post.liked_by current_user
+            create_notification(@post)
         end   
         respond_to do |format|
             #format.html { render layout: !request.xhr? }
@@ -32,7 +33,7 @@ class PostsController < ApplicationController
         @post = current_user.posts.build(post_params)
         if @post.save
             flash[:success] = "Your post has been created!"
-            redirect_to posts_path
+            redirect_to(post_path(@post))
         else
             flash[:danger] = "Your new post couldn't be created!"
             render :new
@@ -66,6 +67,7 @@ class PostsController < ApplicationController
     end
 
     private
+
     def post_params
         params.require(:post).permit(:image, :caption)
     end
@@ -76,8 +78,15 @@ class PostsController < ApplicationController
 
     def check_ownership
         unless current_user == @post.user
-            flash[:danger] = "YOU SHOULDN'T BE HERE BOY!"
+            flash[:danger] = "You shoulnd't be editing what isn't yours!"
             redirect_to root_path
         end
     end
+
+    def create_notification(post)
+        return if post.user.id == current_user.id 
+        
+        Notification.create(user_id: post.user.id, notified_by_id: current_user.id, post_id: post.id, notice_type: 'like')
+    end
+
 end

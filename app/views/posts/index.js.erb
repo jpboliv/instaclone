@@ -1,5 +1,7 @@
 $('#posts').append("<%= escape_javascript(render @posts)%>");
-$('#paginator').html("<%= escape_javascript(link_to_next_page(@posts, 'LOAD MORE', remote: true, id: 'load_more'))%>");
-if ($('#load_more').length == 0) { 
+$('#paginator-button').html("<%= escape_javascript(render( "button_more", posts: @posts)) %>");
+console.log('<%= @posts.current_page %>')
+<% if @posts.last_page? %> { 
     $('#paginator-button').remove(); 
 }
+<% end %>
