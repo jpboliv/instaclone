@@ -19,9 +19,6 @@ module PostsHelper
 
   def list_likers(votes)
     unless votes.blank?
-      # votes.each do |vote|
-      #   usernames.push(link_to(vote.voter.user_name, profile_path(vote.voter.user_name), class: 'user-name'))
-      # end
       usernames = votes.map do |vote| 
         link_to(vote.voter.user_name, profile_path(vote.voter.user_name), class: 'user-name')  
       end
