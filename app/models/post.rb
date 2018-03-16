@@ -9,4 +9,8 @@ class Post < ActiveRecord::Base
     has_many :comments, dependent: :destroy
     has_many :notifications, dependent: :destroy
     paginates_per 3
+
+    def owner?(user)
+      self.user == user
+    end
   end

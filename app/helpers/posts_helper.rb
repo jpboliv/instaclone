@@ -18,21 +18,18 @@ module PostsHelper
   private
 
   def list_likers(votes)
-    usernames = []
     unless votes.blank?
-      votes.each do |vote|
-        usernames.push(link_to(vote.voter.user_name, profile_path(vote.voter.user_name), class: 'user-name'))
+      # votes.each do |vote|
+      #   usernames.push(link_to(vote.voter.user_name, profile_path(vote.voter.user_name), class: 'user-name'))
+      # end
+      usernames = votes.map do |vote| 
+        link_to(vote.voter.user_name, profile_path(vote.voter.user_name), class: 'user-name')  
       end
-      usernames.to_sentence.html_safe + like_plural(votes)
+      usernames.to_sentence.html_safe + "#{'like'.pluralize(votes.count)} this"
     end
   end
 
   def count_likers(votes)
     "#{votes.size} likes"
-  end
-
-  def like_plural(votes)
-    return ' like this' if votes.count > 1
-    ' likes this'
   end
 end

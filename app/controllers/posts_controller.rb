@@ -80,7 +80,7 @@ class PostsController < ApplicationController
   end
 
   def check_ownership
-    unless current_user == @post.user
+    unless @post.owner?(current_user)
       flash[:danger] = "You shoulnd't be editing what isn't yours!"
       redirect_to root_path
     end

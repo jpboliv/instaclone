@@ -5,14 +5,10 @@ class ProfilesController < ApplicationController
 
   def show
     # getting user_name from url
-    @posts = User.find_by(user_name: params[:user_name]).posts.order('created_at DESC')
+    user = User.find_by(user_name: params[:user_name])
+    @posts = user.posts.order('created_at DESC')
     # top 10 most liked posts from user
-    @most_liked_posts = User.find_by(user_name: params[:user_name]).posts.order('cached_votes_up DESC').first(10)
-    @only_liked_posts = []
-
-    @most_liked_posts.each do |liked_posts|
-      @only_liked_posts << liked_posts if liked_posts.cached_votes_up >= 1
-    end
+    @most_liked_posts = user.posts.where('cached_votes_up > ?', 0).order('cached_votes_up DESC').first(10)
   end
 
   def edit; end
