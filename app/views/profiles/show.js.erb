@@ -1,0 +1,2 @@
+$("#my-pics").html("<%= escape_javascript(render "all_posts", post: @posts) %>");
+$("#most-liked").html("<%= escape_javascript(render "most_liked", post: @most_liked_posts) %>");

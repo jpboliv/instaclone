@@ -1,6 +1,0 @@
-<% if current_user.liked? @post %>
-    $('#likes_<%= @post.id %>').addClass('liked');
-<% else %>
-    $('#likes_<%= @post.id %>').removeClass('liked');   
-<%end%>
-$('#likes-count-<%= @post.id %>').html("<%= @post.get_upvotes.size %>");
