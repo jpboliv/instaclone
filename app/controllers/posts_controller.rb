@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: %i[show edit update destroy vote]
+  before_action :set_post, only: %i[show edit update destroy like unlike]
   before_action :check_ownership, only: %i[edit update destroy]
 
   def index
@@ -11,17 +11,22 @@ class PostsController < ApplicationController
     end
   end
 
-  def vote
-    if current_user.liked? @post
-      @post.unliked_by current_user
-    else
-      @post.liked_by current_user
-      create_notification(@post)
+  def like
+    if @post.liked_by current_user
+      create_notification @post
+      respond_to do |format|
+        format.js
+        format.html { redirect_to :back }
+      end
     end
-    respond_to do |format|
-      # format.html { render layout: !request.xhr? }
-      format.html { redirect_to request.referrer }
-      format.js
+  end
+
+  def unlike
+    if @post.unliked_by current_user
+      respond_to do |format|
+        format.js
+        format.html { redirect_to :back }
+      end
     end
   end
 

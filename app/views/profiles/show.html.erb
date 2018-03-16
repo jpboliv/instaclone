@@ -24,12 +24,12 @@
     </div>
 </div>
 <div class="container-navtab">
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#my-pics">My Pictures</a></li>
-    <li><a data-toggle="tab" href="#most-liked">Favourites</a></li>
-  </ul>
   <div class="tab-content">  
-    <div id="home" class="tab-pane fade in active">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#my-pics">My Pictures</a></li>
+      <li><a data-toggle="tab" href="#most-liked">Favourites</a></li>
+    </ul>
+    <div id="my-pics" class="tab-pane fade in active">
       <%= render "all_posts", post: @posts %>
     </div>
     <div id="most-liked" class="tab-pane fade">
