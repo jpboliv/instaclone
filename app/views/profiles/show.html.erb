@@ -23,7 +23,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container-navtab">
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#my-pics">My Pictures</a></li>
     <li><a data-toggle="tab" href="#most-liked">Favourites</a></li>
@@ -33,7 +33,7 @@
       <%= render "all_posts", post: @posts %>
     </div>
     <div id="most-liked" class="tab-pane fade">
-      <%= render "most_liked", post: @most_liked_posts %>
+      <%= render "most_liked", post: @only_liked_posts %>
     </div>
   </div>
 </div>

@@ -6,6 +6,6 @@ class NotificationsController < ApplicationController
   end
 
   def index
-    @notifications = current_user.notifications.where(read: false).order("created_at DESC")
+    @notifications = current_user.notifications.where(read: false).order('created_at DESC')
   end
 end
