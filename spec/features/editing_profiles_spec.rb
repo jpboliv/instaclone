@@ -29,7 +29,7 @@ feature "Editing Profiles" do
 
     scenario "a user cannot navigate directly to edit a users profile" do
         visit('/supboysup/edit')
-        expect(page).to have_content("YOU SHOULDN'T BE HERE BOY!")
+        expect(page).to have_content("You can't edit other people profiles!")
         expect(page).to have_current_path("/")
     end
 end
