@@ -1,0 +1,8 @@
+<br>
+<div class="container-searchbox">
+  <form>
+    <%= select_tag "people", options_from_collection_for_select(@users, "user_name", "user_name", "email"), id: "search-box", include_blank: true,
+        data: { placeholder: "Search for a user" } %>  
+  </form>
+</div>
+

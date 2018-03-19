@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order('created_at DESC').page(params[:page])
+    @users = User.all.order('user_name')
     respond_to do |format|
       format.html
       format.js

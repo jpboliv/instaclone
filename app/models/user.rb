@@ -27,5 +27,4 @@ class User < ApplicationRecord
             errors.add(:user_name, "That username is invalid!")
         end  
     end
-
 end
