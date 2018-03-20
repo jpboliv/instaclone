@@ -22,7 +22,11 @@ module PostsHelper
       usernames = votes.map do |vote| 
         link_to(vote.voter.user_name, profile_path(vote.voter.user_name), class: 'user-name')  
       end
-      usernames.to_sentence.html_safe + "#{'like'.pluralize(votes.count)} this"
+      if (votes.size > 1)
+        usernames.to_sentence.html_safe + "like this"
+      else
+        usernames.to_sentence.html_safe + "likes this"
+      end
     end
   end
 
