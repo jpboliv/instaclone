@@ -49,17 +49,14 @@ feature 'User receives notification' do
   end
 
   scenario 'Notification disapears when read' do
-    user = create(:user)
+    user = create(:user) 
     user2 = create(:user, email: 'hi@hi.com', user_name: 'supboysup')
     post = create(:post,user: user)
-    sign_in_with(user2)
-    visit '/'   
-    click_on(class: 'glyphicon glyphicon-heart-empty')
-    click_link "Logout"
+    notif = Notification.create user_id: user.id, notified_by_id: user2.id, post: post, notice_type: "like", read: "false"
     sign_in_with(user)
     click_on(class: "btn btn-default dropdown-toggle")
     click_link "View All"
-    find(:xpath, "//a[contains(@href,'notifications/1/link_through')]", match: :first).click
+    find(:xpath, "//a[contains(@href,'notifications/#{notif.id}/link_through')]", match: :first).click
     expect(page).to have_current_path("/posts/#{post.id}")
     click_on(class: "btn btn-default dropdown-toggle")
     click_link "View All"
@@ -67,3 +64,4 @@ feature 'User receives notification' do
   end
 
 end
+    

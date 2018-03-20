@@ -10,7 +10,7 @@ feature "Viewing Profile " do
         
     end
     scenario "visiting a profile page shows the user name in the url" do
-        expect(page).to have_current_path("/Arnie")
+        expect(page).to have_current_path("/user/Arnie")
     end
 
     scenario "a profile page only shows the specified users post" do

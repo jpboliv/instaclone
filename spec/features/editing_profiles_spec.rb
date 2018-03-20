@@ -17,7 +17,7 @@ feature "Editing Profiles" do
         attach_file('user_avatar', 'app/assets/images/bgimage2.jpg')
         fill_in "user_bio", with: "new caption bro"
         click_button "Update Profile"
-        expect(page).to have_current_path("/Arnie")
+        expect(page).to have_current_path("/user/Arnie")
         expect(page).to have_content("Your profile has been updated!")
         expect(page).to have_content("new caption bro")
     end
@@ -28,7 +28,7 @@ feature "Editing Profiles" do
     end
 
     scenario "a user cannot navigate directly to edit a users profile" do
-        visit('/supboysup/edit')
+        visit('/user/supboysup/edit')
         expect(page).to have_content("You can't edit other people profiles!")
         expect(page).to have_current_path("/")
     end

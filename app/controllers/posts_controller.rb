@@ -2,12 +2,20 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i[show edit update destroy like unlike]
   before_action :check_ownership, only: %i[edit update destroy]
-
+  
   def index
     @posts = Post.all.order('created_at DESC').page(params[:page])
     respond_to do |format|
       format.html
       format.js
+    end
+  end
+
+  def search
+    @users = User.search_user(params[:q])
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.json { @users.limit(8) }
     end
   end
 
@@ -91,4 +99,5 @@ class PostsController < ApplicationController
 
     Notification.create(user_id: post.user.id, notified_by_id: current_user.id, post_id: post.id, notice_type: 'like')
   end
+
 end
