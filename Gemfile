@@ -25,17 +25,12 @@ gem 'acts_as_votable', '~> 0.11.1'
 gem 'pg'
 gem 'pg_search'
 
-group :production do
-  gem 'pg'
-end
-
 group :development, :test do  
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver', '~> 2.53.4'
   gem 'rspec-rails', '~> 3.7'
   gem "factory_girl_rails", "~> 4.0"
-  #gem 'sqlite3'
 end
 
 group :development do
