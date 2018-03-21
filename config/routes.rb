@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   get 'posts', to: 'posts#index'
   get 'show', to: 'posts#index'
 
+  get 'search', to: 'posts#search'
   root 'posts#index'
 
-  get ':user_name', to: 'profiles#show', as: :profile
-  get ':user_name/edit', to: 'profiles#edit', as: :edit_profile
-  patch ':user_name/edit', to: 'profiles#update', as: :update_profile
+  get 'user/:user_name', to: 'profiles#show', as: :profile
+  get 'user/:user_name/edit', to: 'profiles#edit', as: :edit_profile
+  patch 'user/:user_name/edit', to: 'profiles#update', as: :update_profile
 
   resources :posts do
     resources :comments

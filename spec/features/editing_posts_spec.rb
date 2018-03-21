@@ -5,7 +5,7 @@ feature 'Editing posts' do
         user = create(:user)
         post = create(:post, user: user)
         sign_in_with(user)
-        find(:xpath, "//a[contains(@href,'posts/1')]", match: :first).click
+        find(:xpath, "//a[contains(@href,'posts/#{post.id}')]", match: :first).click
         click_link 'Edit'
     end
 

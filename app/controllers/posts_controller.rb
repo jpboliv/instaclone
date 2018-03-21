@@ -11,12 +11,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @users = User.search_user(params[:q])
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.json { @users.limit(8) }
+    end
+  end
+
   def like
     if @post.liked_by current_user
       create_notification @post
       respond_to do |format|
         format.js
-        format.html {redirect_back(fallback_location: root_path)}
+        format.html { redirect_back(fallback_location: root_path) }
       end
     end
   end
@@ -25,7 +33,7 @@ class PostsController < ApplicationController
     if @post.unliked_by current_user
       respond_to do |format|
         format.js
-        format.html {redirect_back(fallback_location: root_path)}
+        format.html { redirect_back(fallback_location: root_path) }
       end
     end
   end
