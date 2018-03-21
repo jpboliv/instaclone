@@ -365,3 +365,22 @@ input[type=file]{
   position: absolute;
   left: -9999px;
 }
+
+.dropdown{
+  margin-left: 40%;
+  margin-top: -6%;
+  background-color: white;
+}
+
+.dropdown-toggle {
+  border-color:black;
+  border-style: solid;
+}
+
+.dropdown-menu{
+  background-color:white;
+}
+
+.dropdown-menu>li>a{
+  color: black;
+}
