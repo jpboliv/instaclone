@@ -25,7 +25,7 @@ feature 'User receives notification' do
     post = create(:post,user: user)
     sign_in_with(user2)
     visit '/'  
-    click_on(class: 'like-btn')
+    click_on(class: 'glyphicon glyphicon-heart-empty') 
     click_link "Logout"
     sign_in_with(user)
     click_on(class: "btn btn-default dropdown-toggle")
@@ -40,7 +40,7 @@ feature 'User receives notification' do
     sign_in_with(user)
     fill_in "comment_content_#{post.id}", with: ";P"
     click_button 'New Comment'
-    click_on(class: 'like-btn')
+    click_on(class: 'glyphicon glyphicon-heart-empty')
     click_on(class: "btn btn-default dropdown-toggle")
     expect(page).to have_content("Notifications")
     click_link "View All"
@@ -54,7 +54,7 @@ feature 'User receives notification' do
     post = create(:post,user: user)
     sign_in_with(user2)
     visit '/'   
-    click_on(class: 'like-btn')
+    click_on(class: 'glyphicon glyphicon-heart-empty')
     click_link "Logout"
     sign_in_with(user)
     click_on(class: "btn btn-default dropdown-toggle")

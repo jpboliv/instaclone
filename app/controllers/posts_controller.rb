@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       create_notification @post
       respond_to do |format|
         format.js
-        format.html { redirect_to :back }
+        format.html {redirect_back(fallback_location: root_path)}
       end
     end
   end
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     if @post.unliked_by current_user
       respond_to do |format|
         format.js
-        format.html { redirect_to :back }
+        format.html {redirect_back(fallback_location: root_path)}
       end
     end
   end
