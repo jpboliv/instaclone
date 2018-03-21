@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'notifications', to: 'notifications#index'
   get 'profiles/show'
   devise_for :users
-  
+
   get 'posts', to: 'posts#index'
   get 'show', to: 'posts#index'
 
