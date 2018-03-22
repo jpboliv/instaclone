@@ -13,4 +13,8 @@ class Post < ActiveRecord::Base
     def owner?(user)
       self.user == user
     end
+
+    def count_comments
+      self.comments.count
+    end
   end

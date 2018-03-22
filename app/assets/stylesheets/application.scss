@@ -21,7 +21,7 @@
 body {
   background-color: #fafafa;
   height: 100%;
-  font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: proxima-nova, "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 /* ## NAVBAR CUSTOMISATIONS ## */
@@ -29,7 +29,7 @@ body {
   a {
     color: #125688;
   }
-} 
+}
 
 .navbar-default {
   background-color: #fff;
@@ -69,14 +69,15 @@ body {
     color: #125688;
     font-size: 15px;
     line-height: 18px;
-    .user-name, .time-ago {
+    .user-name,
+    .time-ago {
       display: inline;
     }
     .user-name {
       font-weight: 500;
     }
     .time-ago {
-      color: #A5A7AA;
+      color: #a5a7aa;
       float: right;
     }
   }
@@ -87,7 +88,8 @@ body {
 }
 
 .post-bottom {
-  .user-name, .comment-content {
+  .user-name,
+  .comment-content {
     display: inline;
   }
   .caption {
@@ -99,7 +101,8 @@ body {
     color: #125688;
     font-size: 15px;
   }
-  .user-name, .caption-content {
+  .user-name,
+  .caption-content {
     display: inline;
   }
   #comment {
@@ -127,7 +130,7 @@ body {
   line-height: 18px;
   border: medium none;
   width: 100%;
-  color: #4B4F54;
+  color: #4b4f54;
 }
 
 .comment-like-form {
@@ -137,7 +140,7 @@ body {
   margin-right: 24px;
   min-height: 68px;
   align-items: center;
-  border-top: 1px solid #EEEFEF;
+  border-top: 1px solid #eeefef;
   flex-direction: row;
   justify-content: center;
 }
@@ -166,17 +169,17 @@ html {
 .registration-bg {
   padding-top: 4em;
   height: 100%;
-  background-image: image-url('bgimage.jpg');
+  background-image: image-url("bgimage.jpg");
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-.log-in{
+.log-in {
   margin-left: auto;
   margin-right: auto;
-  text-align:center;
+  text-align: center;
   border: none;
 }
 
@@ -192,7 +195,7 @@ html {
   }
 }
 
-.panel-heading{
+.panel-heading {
   h1 {
     text-align: center;
   }
@@ -216,27 +219,28 @@ html {
   margin: 0px auto;
 }
 /*fixing new posts layout */
-input, select {
+input,
+select {
   width: 100%;
-  border-radius: 3px; 
+  border-radius: 3px;
 }
 
-input[type=file]{
+input[type="file"] {
   width: auto;
 }
 
 /* load more button and paginator */
 .paginator-button {
-  color: #4090DB;
+  color: #4090db;
   height: 120px;
   width: 120px;
   margin: 60px auto 40px;
   position: relative;
   display: table;
-  border: 2px solid #4090DB;
+  border: 2px solid #4090db;
   border-radius: 50%;
   :hover {
-    border: 1px solid #2D6DA8;
+    border: 1px solid #2d6da8;
     border-radius: 50%;
   }
 }
@@ -248,15 +252,15 @@ input[type=file]{
   vertical-align: middle;
   text-decoration: none;
   a :hover {
-    color: #2D6DA8;
+    color: #2d6da8;
   }
 }
 
 .comments {
-  .paginator{
+  .paginator {
     margin: 0.5em;
-    .more-comments{
-      color: #A5A7AA;
+    .more-comments {
+      color: #a5a7aa;
     }
   }
 }
@@ -298,31 +302,31 @@ input[type=file]{
   margin-top: 20px;
 }
 
-.notification-dropdown{
-    margin-top: 10px;
-    button{
-        border: none;
-    }
+.notification-dropdown {
+  margin-top: 10px;
+  button {
+    border: none;
+  }
 }
 
 .notification-index-list {
-    margin-top: 5em;
-    list-style: none;
-    li {
-      margin-top: 1em;
-      background-color: white;
-      padding: 1em;
-    }
+  margin-top: 5em;
+  list-style: none;
+  li {
+    margin-top: 1em;
+    background-color: white;
+    padding: 1em;
+  }
 }
 
-// nav tab shown on profiles 
+// nav tab shown on profiles
 .nav-tabs > li {
-  float:none;
-  display:inline-block;
+  float: none;
+  display: inline-block;
 }
 
-.nav-tabs{
-  text-align:center;
+.nav-tabs {
+  text-align: center;
   margin-bottom: -40px;
   background: white;
   border: none;
@@ -345,7 +349,8 @@ input[type=file]{
   color: red;
 }
 
-.like-button a:hover, a:focus {
+.like-button a:hover,
+a:focus {
   text-decoration: none;
 }
 
@@ -366,21 +371,22 @@ input[type=file]{
   left: -9999px;
 }
 
-.dropdown{
+.orderbox {
+  width: 20%;
+  margin-top: 5%;
   margin-left: 40%;
-  margin-top: -6%;
-  background-color: white;
-}
-
-.dropdown-toggle {
-  border-color:black;
-  border-style: solid;
-}
-
-.dropdown-menu{
-  background-color:white;
-}
-
-.dropdown-menu>li>a{
-  color: black;
+  margin-bottom: 14%;
+  .form-control {
+    color: orange;
+    margin-bottom: -140%;
+    margin-top: -25%;
+    position: relative;
+    option {
+      border: 1px solid grey;
+    }
+  }
+  .orderlabel {
+    margin-left: -70%;
+    margin-top: 20%;
+  }
 }

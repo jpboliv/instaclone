@@ -8,17 +8,6 @@
           <%= post.created_at.to_date %>
         </div>
       </div>
-      <% if current_page?(:controller => 'profiles', :action => 'show') %>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Order by: 
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Comments</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Date</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Likes</a></li>
-          </ul>
-        </div>
-      <% end %>
     </div>
     <div class="image center-block">
       <%= link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>

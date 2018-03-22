@@ -30,6 +30,7 @@
       <li><a data-toggle="tab" href="#most-liked">Favourites</a></li>
     </ul>
     <div id="my-pics" class="tab-pane fade in active">
+      <%= render "order_box" %>
       <%= render "all_posts", post: @posts %>
     </div>
     <div id="most-liked" class="tab-pane fade">

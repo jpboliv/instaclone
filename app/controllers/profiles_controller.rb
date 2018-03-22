@@ -4,11 +4,23 @@ class ProfilesController < ApplicationController
   before_action :can_edit_profile, only: %i[edit update]
 
   def show
-    # getting user_name from url
+    @orders = ["Comments", "Likes", "Date"]
     user = User.find_by(user_name: params[:user_name])
     @posts = user.posts.order('created_at DESC')
     # top 10 most liked posts from user
     @most_liked_posts = user.posts.where('cached_votes_up > ?', 0).order('cached_votes_up DESC').first(10)
+  end
+
+  def update_posts_order
+    user = User.find_by(user_name: params[:user_name])
+    if params[:type_order] == "likes" #order by likes
+      @posts = user.posts.order('cached_votes_up DESC')
+    elsif params[:type_order] == "date" #order by date
+      @posts = user.posts.order('created_at DESC')
+    else
+      @posts = user.posts
+      @posts = @posts.sort_by(&:count_comments).reverse
+    end
   end
 
   def edit; end
