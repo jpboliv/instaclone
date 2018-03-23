@@ -19,6 +19,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def update_likes
+    @posts = Post.all
+    respond_to do |format|
+      format.js 
+      format.html {redirect_back(fallback_location: root_path)}
+    end
+  end
+
   def like
     if @post.liked_by current_user
       create_notification @post

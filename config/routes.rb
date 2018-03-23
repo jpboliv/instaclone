@@ -19,10 +19,12 @@ Rails.application.routes.draw do
   get 'user/:user_name/likes', to: 'profiles#update_posts_order', as: :order_by_likes
 
   resources :posts do
-    resources :comments
+    get 'update_likes', on: :collection
+    
     member do
       get 'like'
       get 'unlike'
     end
+    resources :comments 
   end
 end
