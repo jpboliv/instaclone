@@ -1,10 +1,7 @@
-$(document).ready(function() {
+$(document).on("turbolinks:load", function() {
   $("#ordertype").change(get_order);
-  console.log("detectei mudança no select");
 });
 function get_order() {
-  console.log("entrei no get_order");
-  console.log($(this).val());
   var type_order = $(this).val();
   var current_url = window.location.pathname;
   $.ajax({
