@@ -1,5 +1,5 @@
 $(document).on("turbolinks:load", function() {
-  var asking_refresh = setInterval(refresh_likes, 1000);
+  var asking_refresh = setInterval(refresh_likes, 3000);
 });
 
 function refresh_likes() {
