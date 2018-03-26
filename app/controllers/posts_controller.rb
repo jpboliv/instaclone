@@ -20,7 +20,8 @@ class PostsController < ApplicationController
   end
 
   def update_likes
-    @posts = Post.all.where('updated_at != created_at')
+    update_threshold = DateTime.now-30.seconds
+    @posts = Post.all.where('updated_at > ?', update_threshold)
     respond_to do |format|
       format.js 
       format.html {redirect_back(fallback_location: root_path)}
