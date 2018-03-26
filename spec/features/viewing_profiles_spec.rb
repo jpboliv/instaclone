@@ -15,8 +15,8 @@ feature "Viewing Profile " do
 
     scenario "a profile page only shows the specified users post" do
         user2 = create(:user, email: 'hi@hi.com', user_name: 'supboysup')
-        post2 = create(:post,user: user2, caption: "SUP BITCH")
-        expect(page).to_not have_content("SUP BITCH")
+        post2 = create(:post,user: user2, caption: "hello dude")
+        expect(page).to_not have_content("hello dude")
         expect(page).to have_content("#nofilter")
     end
 end

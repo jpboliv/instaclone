@@ -26,9 +26,12 @@
 <div class="container-navtab">
   <div class="tab-content">  
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#my-pics">My Pictures</a></li>
-      <li><a data-toggle="tab" href="#most-liked">Favourites</a></li>
+      <li class="active" id="my-pics-tab"><a data-toggle="tab" href="#my-pics">My Pictures</a></li>
+      <li id="most-liked-tab"><a data-toggle="tab" href="#most-liked">Favourites</a></li>
     </ul>
+    <div id="order-box">
+      <%= render "order_box" %>
+    </div>
     <div id="my-pics" class="tab-pane fade in active">
       <%= render "all_posts", post: @posts %>
     </div>

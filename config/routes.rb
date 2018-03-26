@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get 'user/:user_name/edit', to: 'profiles#edit', as: :edit_profile
   patch 'user/:user_name/edit', to: 'profiles#update', as: :update_profile
 
+  get 'user/:user_name/comments', to: 'profiles#update_posts_order', as: :order_by_comments
+  get 'user/:user_name/date', to: 'profiles#update_posts_order', as: :order_by_date
+  get 'user/:user_name/likes', to: 'profiles#update_posts_order', as: :order_by_likes
+
   resources :posts do
     resources :comments
     member do
