@@ -13,7 +13,7 @@
 
 #   # scenario "Ordering posts by likes" do 
 #   #   first('.user-name').click_link 'Arnie' 
-#   #   find('#orderType').find(:xpath, 'option[2]').select_option
+#   #   find('#order-type').find(:xpath, 'option[2]').select_option
 #   # end
   
 #   # scenario "Ordering posts by date" do 

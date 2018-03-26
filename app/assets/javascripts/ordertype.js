@@ -1,5 +1,5 @@
 $(document).on("turbolinks:load", function() {
-  $("#orderType").change(get_order);
+  $("#order-type").change(get_order);
 });
 
 function get_order() {
