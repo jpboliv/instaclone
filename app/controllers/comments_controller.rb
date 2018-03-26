@@ -17,7 +17,6 @@ class CommentsController < ApplicationController
   end
 
   def index
-    @comments = @post.comments.order('created_at ASC')
     respond_to do |format|
       format.js
     end

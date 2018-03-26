@@ -14,15 +14,15 @@ Rails.application.routes.draw do
   get 'user/:user_name/edit', to: 'profiles#edit', as: :edit_profile
   patch 'user/:user_name/edit', to: 'profiles#update', as: :update_profile
 
-  get 'user/:user_name/comments', to: 'profiles#update_posts_order', as: :order_by_comments
-  get 'user/:user_name/date', to: 'profiles#update_posts_order', as: :order_by_date
-  get 'user/:user_name/likes', to: 'profiles#update_posts_order', as: :order_by_likes
+  get 'user/:user_name/update_posts_order', to: 'profiles#update_posts_order', as: :order_posts
 
   resources :posts do
-    resources :comments
+    get 'update_likes', on: :collection
+    
     member do
       get 'like'
       get 'unlike'
     end
+    resources :comments 
   end
 end

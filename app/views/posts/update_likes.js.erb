@@ -1,0 +1,4 @@
+<% @posts.each do |post| %>
+  $('#likes_<%= post.id %>').html("<%= escape_javascript display_likes(post) %>");
+  $('#comments_<%= post.id %>').html("<%= escape_javascript render("comments/comments", post: post)%>");
+<% end %>
