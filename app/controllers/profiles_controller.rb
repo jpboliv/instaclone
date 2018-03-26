@@ -14,11 +14,10 @@ class ProfilesController < ApplicationController
   def update_posts_order
     user = User.find_by(user_name: params[:user_name])
     case params[:type_order]
-      when "likes" then @posts = user.posts.order('cached_votes_up DESC')
-      when "date" then @posts = user.posts.order('created_at DESC')
-      else 
-        @posts = user.posts 
-        @posts = @posts.sort_by(&:count_comments).reverse
+    when "likes" then @posts = user.posts.order('cached_votes_up DESC')
+    when "date" then @posts = user.posts.order('created_at DESC')
+    else 
+      @posts = user.posts.sort_by(&:count_comments).reverse
     end
   end
 
