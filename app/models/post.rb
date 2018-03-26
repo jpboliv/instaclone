@@ -15,6 +15,6 @@ class Post < ActiveRecord::Base
     end
 
     def count_comments
-      self.comments.count
+      comments.count
     end
   end
