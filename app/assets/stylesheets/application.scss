@@ -328,8 +328,9 @@ input[type="file"] {
 .nav-tabs {
   text-align: center;
   margin-bottom: -40px;
-  background: white;
+  background: #fafafa;
   border: none;
+  margin-right: 55%;
 }
 
 .container-navtab {
@@ -372,21 +373,73 @@ a:focus {
 }
 
 .orderbox {
-  width: 20%;
   margin-top: 5%;
   margin-left: 40%;
   margin-bottom: 14%;
-  .form-control {
-    color: orange;
-    margin-bottom: -140%;
-    margin-top: -25%;
-    position: relative;
-    option {
-      border: 1px solid grey;
-    }
+}
+
+.dropbtn {
+  background-color: white;
+  border-top: none;
+  border-radius: 5px;
+  color: #a5a7aa;
+  padding: 16px;
+  font-size: 16px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #fafafa;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  #order-button {
+    margin-left: -18px;
+    margin-bottom: -6px;
+    margin-top: 10px;
+    width: 200px;
+    //position: relative;
   }
-  .order-label {
-    margin-left: -70%;
-    margin-top: 20%;
-  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 10px;
+}
+
+.order-list {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.order-list-selected {
+  color: orange;
+}
+
+.order-list:hover {
+  background-color: #fafafa;
+}
+
+.show {
+  display: block;
+}
+
+#my-pics {
+  margin-top: -164px;
+}
+
+#current-order {
+  color: orange;
 }

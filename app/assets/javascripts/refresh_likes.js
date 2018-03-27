@@ -3,7 +3,6 @@ $(document).on("turbolinks:load", function() {
 });
 
 function refresh_likes() {
-  console.log("Refresh likes foi chamada");
   $.ajax({
     type: "get",
     url: "/posts/update_likes"
