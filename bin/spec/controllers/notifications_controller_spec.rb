@@ -9,7 +9,7 @@ RSpec.describe NotificationsController, type: :controller do
       post = create(:post,user: user)
       notif = Notification.create user_id: user.id, notified_by_id: user2.id, post: post, notice_type: "comment", read: "false"
       get :link_through, params: {id: notif.id}
-      expect(response).to have_http_status(:redirect)
+      expect(response).to have_http_status(:success)
     end
   end
 

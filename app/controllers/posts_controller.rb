@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     update_threshold = DateTime.now-30.seconds
     @posts = Post.includes(:comments).where('updated_at > ?', update_threshold)
     respond_to do |format|
-      format.js 
+      format.js
       format.html {redirect_back(fallback_location: root_path)}
     end
   end
