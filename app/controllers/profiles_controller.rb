@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!
   before_action :can_edit_profile, only: %i[edit update]
-
+  
   def show
     @orders = ["Comments", "Likes", "Date"]
     user = User.find_by(user_name: params[:user_name])
@@ -14,8 +14,8 @@ class ProfilesController < ApplicationController
   def update_posts_order
     user = User.find_by(user_name: params[:user_name])
     case params[:type_order]
-    when "likes" then @posts = user.posts.order('cached_votes_up DESC')
-    when "date" then @posts = user.posts.order('created_at DESC')
+    when "Likes" then @posts = user.posts.order('cached_votes_up DESC')
+    when "Date" then @posts = user.posts.order('created_at DESC') 
     else 
       @posts = user.posts.sort_by(&:count_comments).reverse
     end

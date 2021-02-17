@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on("turbolinks:load", function() {
   $("#most-liked-tab").click(remove_orderbox);
   $("#my-pics-tab").click(show_orderbox);
 });

@@ -22,7 +22,7 @@ feature 'User authentication' do
     end
 
     scenario 'can log out once logged in' do
-        visit '/' 
+        visit '/'
         click_link 'Login'
         fill_in 'username', with: 'Arnie'
         fill_in 'password', with: 'illbeback'
@@ -31,7 +31,7 @@ feature 'User authentication' do
         expect(page).to have_content('You need to sign in or sign up before continuing.')
     end
 
-    scenario 'cannot view index posts whithout loggin in' do 
+    scenario 'cannot view index posts whithout loggin in' do
         visit '/'
         expect(page).to have_content("You need to sign in or sign up before continuing.")
     end
